@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "oMUaQgw60AEcwmpT2UqR/2vweHh/IA8SMdumSho5Yrg243QGRAUUzwJQHommhb20TgVBxyWoAsUl61LEMYiGjw==",
+  "dgSpecHash": "4qsJNYgabBkfY7g009pymWGN/WbK8KUKEnlfIQMos/zxrtD/2oyfKnfV63YRLcyWshTgoCsn3J4tR+C/bIJw5A==",
   "success": true,
-  "projectFilePath": "C:\\DEVELOPER\\Estudos\\ASPNET\\AuthApi\\AuthApi.csproj",
+  "projectFilePath": "C:\\Users\\TOM\\source\\repos\\AuthApi\\AuthApi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\t2s-ailton\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\t2s-ailton\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\t2s-ailton\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "C:\\Users\\t2s-ailton\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "C:\\Users\\t2s-ailton\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\t2s-ailton\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "C:\\Users\\TOM\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\TOM\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\TOM\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\TOM\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\TOM\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\TOM\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
   "logs": []
 }
