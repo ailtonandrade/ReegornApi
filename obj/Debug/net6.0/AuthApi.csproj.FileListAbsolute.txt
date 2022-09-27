@@ -52,3 +52,11 @@ C:\Users\TOM\source\repos\AuthApi\obj\Debug\net6.0\refint\AuthApi.dll
 C:\Users\TOM\source\repos\AuthApi\obj\Debug\net6.0\AuthApi.pdb
 C:\Users\TOM\Source\Repos\AuthApi\obj\Debug\net6.0\AuthApi.genruntimeconfig.cache
 C:\Users\TOM\Source\Repos\AuthApi\obj\Debug\net6.0\ref\AuthApi.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\TOM\source\repos\AuthApi\bin\Debug\net6.0\System.Security.Permissions.dll
