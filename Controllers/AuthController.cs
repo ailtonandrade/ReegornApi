@@ -11,7 +11,9 @@ public class AuthController : Controller
     public IActionResult Auth(string user, string pass)
     {
         if (user == "admin" && pass == "123")
+        {
             return Json("Logado");
+        }
 
         return Json("Não Logado!");
     }
