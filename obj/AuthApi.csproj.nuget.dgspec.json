@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TOM\\source\\repos\\AuthApi\\AuthApi.csproj": {}
+    "C:\\Users\\t2s-ailton\\source\\repos\\AuthApi\\AuthApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TOM\\source\\repos\\AuthApi\\AuthApi.csproj": {
+    "C:\\Users\\t2s-ailton\\source\\repos\\AuthApi\\AuthApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOM\\source\\repos\\AuthApi\\AuthApi.csproj",
+        "projectUniqueName": "C:\\Users\\t2s-ailton\\source\\repos\\AuthApi\\AuthApi.csproj",
         "projectName": "AuthApi",
-        "projectPath": "C:\\Users\\TOM\\source\\repos\\AuthApi\\AuthApi.csproj",
-        "packagesPath": "C:\\Users\\TOM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOM\\source\\repos\\AuthApi\\obj\\",
+        "projectPath": "C:\\Users\\t2s-ailton\\source\\repos\\AuthApi\\AuthApi.csproj",
+        "packagesPath": "C:\\Users\\t2s-ailton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\t2s-ailton\\source\\repos\\AuthApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\t2s-ailton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,7 +25,6 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,6 +58,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.116, )"
             }
           },
           "imports": [
@@ -79,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,5 @@
 ﻿using AuthApi.Data;
+using AuthApi.Services;
 using Newtonsoft.Json;
 
 namespace AuthApi.Repositories
@@ -11,8 +12,10 @@ namespace AuthApi.Repositories
 
             try
             {
-                GameObjectsData gameObjData = new GameObjectsData();
-                list = JsonConvert.DeserializeObject<List<EnvironmentObjectsModel>>(gameObjData.gameObjectsData);
+                var query = Transactions.GetConnection().CreateCommand();
+                query.CommandText = @"SELECT * FROM ENV_OBJS";
+                var response = query.ExecuteReaderAsync();
+                Console.WriteLine(response.ToString());
                 return list;
             }
             catch

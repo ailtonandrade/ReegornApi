@@ -11,7 +11,8 @@ namespace AuthApi.Services
 
             try
             {
-                return JsonConvert.SerializeObject(environmentObjectsRepo.GetAll());
+                List<EnvironmentObjectsModel> model = environmentObjectsRepo.GetAll();
+                return JsonConvert.SerializeObject(model);
             }
             catch
             {

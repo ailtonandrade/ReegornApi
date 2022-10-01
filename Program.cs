@@ -1,3 +1,6 @@
+using static AuthApi.Services.Transactions;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,7 +18,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+//init sqlite
+InitData();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

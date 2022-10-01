@@ -1,5 +1,6 @@
 using AuthApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using static System.Transactions.Transaction;
 
 namespace AuthApi.Controllers;
 
@@ -18,8 +19,11 @@ public class AuthController : Controller
             usuario.Pass = pass;
 
             string token = authService.Auth(usuario);
-            if (string.IsNullOrEmpty(token)) 
-                return Json("Usuário não possui parâmetros suficientes para completar a chamada.");
+            if (string.IsNullOrEmpty(token))
+        {
+                return Json("Usuário não autorizado.");
+        }
+
 
 
         return Json(token);
