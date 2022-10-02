@@ -2,11 +2,9 @@ namespace AuthApi;
 
 public class UserModel
 {
-    public long? Id { get; set; }
-
-    public string? Name { get; set; }
-
-    public string User { get; set; }
-
-    public string Pass { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Username { get; set; }
+    public string AccessKey { get; set; }
+    public string Type { get; set; }
 }

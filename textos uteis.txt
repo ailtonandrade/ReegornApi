@@ -1,7 +1,8 @@
 ﻿senha DB ORACLE PC ? XE/Tomeisa1204
 
 
-
+-- token jwt
+https://balta.io/blog/aspnet-5-autenticacao-autorizacao-bearer-jwt
 
 ========= DATA BASE OPERATIONS SQLITE
 

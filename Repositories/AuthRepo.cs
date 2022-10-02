@@ -1,11 +1,41 @@
-﻿namespace AuthApi.Repositories
+﻿using AuthApi.Models;
+using AuthApi.Services;
+
+namespace AuthApi.Repositories
 {
     public class AuthRepo
     {
-        public string Auth(UserModel user)
+        public TokenModel Auth(UserModel credentials)
         {
-            if(user.User == "adm" && user.Pass == "123")
-                return "daf4-ad4f-4daf8a4ds8f4a8d-fa-d4f4a-dfasfa3f4a-34f-aw344fa8--3wf8a434f4a-3fa3";
+            var query = Transactions.GetConnection().CreateCommand();
+            query.CommandText = "SELECT * FROM ACCOUNTS WHERE USER_NAME = '"+ credentials.Username+ "' AND ACCESS_KEY = '"+ credentials.AccessKey+"'";
+            var response = query.ExecuteReader();
+            UserModel user = new UserModel();
+            while (response.Read()){
+                user.Id = response.GetInt32(0);
+                user.Name = response.GetString(1);
+                user.Username = response.GetString(2);
+                user.AccessKey = response.GetString(3);
+                user.Type = response.GetString(4);
+            
+                Console.WriteLine("Acesso concedido à "+user.Username+" ["+DateTime.Now+"]");
+            };
+            if(user.Username != null && user.Id != null)
+            {
+                var queryRoles = Transactions.GetConnection().CreateCommand();
+                queryRoles.CommandText = "SELECT * FROM ROLES WHERE ACCOUNT_ID = "+user.Id;
+                var responseRoles = queryRoles.ExecuteReader();
+                List<RolesModel> roles = new List<RolesModel>();
+                while (responseRoles.Read())
+                {
+                    RolesModel role = new RolesModel();
+                    role.Id = responseRoles.GetInt32(0);
+                    role.AccountId = responseRoles.GetInt32(1);
+                    role.Role = responseRoles.GetString(2);
+                    roles.Add(role);
+                }
+                return TokenService.GenerateToken(user, roles);
+            }
 
             return null;
         }

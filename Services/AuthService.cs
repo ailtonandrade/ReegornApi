@@ -1,17 +1,21 @@
-﻿using AuthApi.Repositories;
+﻿using AuthApi.Models;
+using AuthApi.Repositories;
 
 namespace AuthApi.Services
 {
     public class AuthService
     {
-        public string Auth(UserModel user)
+        public TokenModel Auth(UserModel user)
         {
             AuthRepo authRepo = new AuthRepo();
 
-            if (!string.IsNullOrEmpty(user.User) && !string.IsNullOrEmpty(user.Pass))
+            if (!string.IsNullOrEmpty(user.Username) && !string.IsNullOrEmpty(user.AccessKey))
             {
-                string response = authRepo.Auth(user);
-                return response;
+                TokenModel response = authRepo.Auth(user);
+                if (response != null)
+                {
+                    return response;
+                }
             }
 
             return null;

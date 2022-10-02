@@ -1,4 +1,5 @@
 using AuthApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthApi.Controllers;
@@ -10,6 +11,7 @@ public class EnvironmentObjectsController : Controller
 
     [HttpGet]
     [Route("")]
+
     public IActionResult GetAll(string? auth)
     {
         EnvironmentObjectsService environmentObjectsService = new EnvironmentObjectsService();

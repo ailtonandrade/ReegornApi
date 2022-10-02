@@ -1,4 +1,6 @@
+using AuthApi.Models;
 using AuthApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static System.Transactions.Transaction;
 
@@ -10,16 +12,17 @@ public class AuthController : Controller
 {
 
     [HttpPost]
+    [AllowAnonymous]
     public IActionResult Auth(string user, string pass)
     {
         AuthService authService = new AuthService();
 
             UserModel usuario = new UserModel();
-            usuario.User = user;
-            usuario.Pass = pass;
+            usuario.Username = user;
+            usuario.AccessKey = HashService.Encode(pass);
 
-            string token = authService.Auth(usuario);
-            if (string.IsNullOrEmpty(token))
+            TokenModel token = authService.Auth(usuario);
+            if (token == null)
         {
                 return Json("Usuário não autorizado.");
         }
