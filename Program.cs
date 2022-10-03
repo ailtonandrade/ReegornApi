@@ -1,9 +1,9 @@
-using AuthApi.Data;
+using ReegornApi.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using static AuthApi.Services.Transactions;
+using static ReegornApi.Services.Transactions;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiagenda", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ReegornApi", Version = "v1" });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {

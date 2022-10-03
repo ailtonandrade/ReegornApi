@@ -1,8 +1,8 @@
-﻿using AuthApi.Data;
-using AuthApi.Services;
+﻿using ReegornApi.Data;
+using ReegornApi.Services;
 using Newtonsoft.Json;
 
-namespace AuthApi.Repositories
+namespace ReegornApi.Repositories
 {
     public class EnvironmentObjectsRepo
     {

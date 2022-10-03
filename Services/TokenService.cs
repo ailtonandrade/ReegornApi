@@ -1,11 +1,11 @@
-﻿using AuthApi.Data;
-using AuthApi.Models;
+﻿using ReegornApi.Data;
+using ReegornApi.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace AuthApi.Services
+namespace ReegornApi.Services
 {
     public class TokenService
     {
@@ -22,20 +22,20 @@ namespace AuthApi.Services
                     new Claim(ClaimTypes.Name, user.Username.ToString()),
 
                 }),
-                Expires = DateTime.UtcNow.AddHours(8),
+                Expires = DateTime.UtcNow.AddSeconds(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
-            //foreach (var r in roles)
-            //{
-            //    tokenDescriptor.Subject.AddClaim(
-            //    new Claim(ClaimTypes.Role, r.ToString())
-            //    );
-            //}
+            foreach (var r in roles)
+            {
+                tokenDescriptor.Subject.AddClaim(
+                new Claim(ClaimTypes.Role, r.Role.ToString())
+                );
+            }
             var token = tokenHandler.CreateToken(tokenDescriptor);
             TokenModel tokenModel = new TokenModel();
             tokenModel.Token = tokenHandler.WriteToken(token);
             tokenModel.Expires = tokenDescriptor.Expires;
-            tokenModel.TokenType = tokenDescriptor.TokenType;
+            tokenModel.TokenType = "Bearer";
             return tokenModel;
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System.Data.SQLite;
 
-namespace AuthApi.Services
+namespace ReegornApi.Services
 {
     public class Transactions
     {

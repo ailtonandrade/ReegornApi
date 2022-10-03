@@ -2,7 +2,7 @@
 using System.Text;
 using static System.Formats.Asn1.AsnWriter;
 
-namespace AuthApi.Services
+namespace ReegornApi.Services
 {
     public class HashService
     {

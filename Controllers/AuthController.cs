@@ -1,10 +1,10 @@
-using AuthApi.Models;
-using AuthApi.Services;
+using ReegornApi.Models;
+using ReegornApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static System.Transactions.Transaction;
 
-namespace AuthApi.Controllers;
+namespace ReegornApi.Controllers;
 
 [ApiController]
 [Route("auth")]
@@ -12,6 +12,8 @@ public class AuthController : Controller
 {
 
     [HttpPost]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     [AllowAnonymous]
     public IActionResult Auth(string user, string pass)
     {

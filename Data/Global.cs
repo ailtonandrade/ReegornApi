@@ -1,4 +1,4 @@
-﻿namespace AuthApi.Data
+﻿namespace ReegornApi.Data
 {
     public class Global
     {

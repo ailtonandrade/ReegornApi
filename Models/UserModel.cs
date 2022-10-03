@@ -1,4 +1,4 @@
-namespace AuthApi;
+namespace ReegornApi;
 
 public class UserModel
 {

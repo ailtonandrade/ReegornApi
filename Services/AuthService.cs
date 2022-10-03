@@ -1,7 +1,7 @@
-﻿using AuthApi.Models;
-using AuthApi.Repositories;
+﻿using ReegornApi.Models;
+using ReegornApi.Repositories;
 
-namespace AuthApi.Services
+namespace ReegornApi.Services
 {
     public class AuthService
     {

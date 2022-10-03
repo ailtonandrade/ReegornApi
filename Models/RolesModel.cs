@@ -1,4 +1,4 @@
-﻿namespace AuthApi.Models
+﻿namespace ReegornApi.Models
 {
     public class RolesModel
     {

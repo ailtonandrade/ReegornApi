@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AuthApi.Controllers;
+namespace ReegornApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[Authorize]
+[Authorize(Roles = "GOD")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]

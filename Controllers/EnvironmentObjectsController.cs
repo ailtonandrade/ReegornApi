@@ -1,8 +1,8 @@
-using AuthApi.Services;
+using ReegornApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AuthApi.Controllers;
+namespace ReegornApi.Controllers;
 
 [ApiController]
 [Route("environment-object")]
