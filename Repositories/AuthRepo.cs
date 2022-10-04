@@ -36,6 +36,7 @@ namespace ReegornApi.Repositories
                 }
                 return TokenService.GenerateToken(user, roles);
             }
+            Console.WriteLine("Acesso negado " + user.Username + " [" + DateTime.Now + "]");
 
             return null;
         }

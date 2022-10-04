@@ -1,3 +1,5 @@
 
 alter session set "_ORACLE_SCRIPT"=true; 
 CREATE USER PORTAL IDENTIFIED BY Tomeisa1204
+
+SELECT * FROM ACCOUNTS a 

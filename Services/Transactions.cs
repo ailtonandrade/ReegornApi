@@ -8,7 +8,7 @@ namespace ReegornApi.Services
         }
         public static SQLiteConnection GetConnection()
         {
-            SQLiteConnection connection = new SQLiteConnection("Data Source=c:\\ProgramData\\Reegorn\\data.sqlite Version=3");
+            SQLiteConnection connection = new SQLiteConnection("Data Source=c:\\ProgramData\\Reegorn\\data.sqlite");
             connection.Open();
             return connection;
         }
@@ -69,10 +69,10 @@ namespace ReegornApi.Services
                         DELETE FROM ACCOUNTS WHERE ID >=0;
                         DELETE FROM ROLES WHERE ID >=0;
 
-                        INSERT INTO ENV_OBJS VALUES ('CUBO ROXO','CubePurple','A5S6D1F256A',20000,'COLLECTABLE','ORE');
-                        INSERT INTO ENV_OBJS VALUES ('CUBO LARANJA','CubeOrange','1S5A6S51D4D',NULL,'MOB','ENEMY');
+                        INSERT INTO ENV_OBJS VALUES (0,'CUBO ROXO','CubePurple','A5S6D1F256A',20000,'COLLECTABLE','ORE');
+                        INSERT INTO ENV_OBJS VALUES (1,'CUBO LARANJA','CubeOrange','1S5A6S51D4D',NULL,'MOB','ENEMY');
                         
-                        INSERT INTO ACCOUNTS VALUES (0,'AILTON ANDRADE','andrade01','"+HashService.Encode("123456")+@"','GOD');
+                        INSERT INTO ACCOUNTS VALUES (0,'AILTON ANDRADE','andrade01','" + HashService.Encode("123456")+@"','GOD');
 
                         INSERT INTO ROLES VALUES (0,0,'GOD');
                                         ";

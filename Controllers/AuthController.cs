@@ -12,21 +12,17 @@ public class AuthController : Controller
 {
 
     [HttpPost]
-    [Consumes("application/json")]
     [Produces("application/json")]
     [AllowAnonymous]
-    public IActionResult Auth(string user, string pass)
+    public IActionResult Auth(UserModel? user)
     {
         AuthService authService = new AuthService();
-
-            UserModel usuario = new UserModel();
-            usuario.Username = user;
-            usuario.AccessKey = HashService.Encode(pass);
-
-            TokenModel token = authService.Auth(usuario);
+        user.AccessKey = HashService.Encode(user.AccessKey);
+        TokenModel token = authService.Auth(user);
             if (token == null)
         {
-                return Json("Usuário não autorizado.");
+            Response.StatusCode = 401;
+            return Json("Usuário não autorizado.");
         }
 
 

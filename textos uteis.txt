@@ -6,6 +6,8 @@ https://balta.io/blog/aspnet-5-autenticacao-autorizacao-bearer-jwt
 
 ========= DATA BASE OPERATIONS SQLITE
 
+--USING TONEK INTO POST ASYNC TO API
+https://csharp.hotexamples.com/pt/examples/-/HttpClient/PostAsync/php-httpclient-postasync-method-examples.html
 
 
 using csharp_Sqlite.Models;

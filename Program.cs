@@ -72,11 +72,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 //Gera tabelas
-bool isNewDataBase = false;
+bool isTables = true;
 //gera valores iniciais
-bool isNewDataValues = false;
+bool isNewDataValues = true;
 
-if (isNewDataBase) 
+if (isTables) 
     InitData();
 
 if (isNewDataValues)
