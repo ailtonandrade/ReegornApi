@@ -1,6 +1,7 @@
 using ReegornApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace ReegornApi.Controllers;
 
@@ -10,22 +11,19 @@ public class EnvironmentObjectsController : Controller
 {
 
     [HttpGet]
+    [Authorize(Roles = "GOD")]
+    [Produces("application/json")]
     [Route("")]
 
-    public IActionResult GetAll(string? auth)
+    public async Task<string> GetAll()
     {
         EnvironmentObjectsService environmentObjectsService = new EnvironmentObjectsService();
-
-        if (string.IsNullOrEmpty(auth))
-        {
-            return Json("Erro de autenticação.");
-        }
         var response = environmentObjectsService.GetAll();
-            if (response != null)
+            if (response.IsCompletedSuccessfully)
             {
-                return Json(response);
+                return JsonConvert.SerializeObject(response.Result);
             }
-                return Json("Erro ao buscar objetos do ambiente");
+        return JsonConvert.SerializeObject(new {message = "Erro ao buscar objetos do ambiente" });
 
 
     }

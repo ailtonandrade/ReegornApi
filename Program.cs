@@ -71,16 +71,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 //Gera tabelas
-bool isTables = true;
+//bool isTables = true;
 //gera valores iniciais
-bool isNewDataValues = true;
+//bool isNewDataValues = true;
 
-if (isTables) 
-    InitData();
+//if (isTables) 
+//    InitData();
 
-if (isNewDataValues)
-    InitDataValues();
+//if (isNewDataValues)
+//    InitDataValues();
 
 app.UseHttpsRedirection();
 

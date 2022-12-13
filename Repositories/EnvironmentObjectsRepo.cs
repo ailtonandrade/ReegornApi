@@ -1,27 +1,42 @@
 ﻿using ReegornApi.Data;
 using ReegornApi.Services;
 using Newtonsoft.Json;
+using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace ReegornApi.Repositories
 {
     public class EnvironmentObjectsRepo
     {
-        public List<EnvironmentObjectsModel> GetAll()
+        public async Task<List<EnvironmentObjectsModel>> GetAll(OracleConnection db)
         {
-            List<EnvironmentObjectsModel> list = new List<EnvironmentObjectsModel>();
-
+            List<EnvironmentObjectsModel> listObj = new List<EnvironmentObjectsModel>();
             try
             {
-                var query = Transactions.GetConnection().CreateCommand();
-                query.CommandText = @"SELECT * FROM ENV_OBJS";
-                var response = query.ExecuteReaderAsync();
-                Console.WriteLine(response.ToString());
-                return list;
+                db.Open();
+                var sql = $"SELECT DISPLAYNAME,HP,INTERNALID,ID,TYPE,CATEGORY FROM ENV_OBJS";
+
+                OracleDataReader response = new OracleCommand(sql,db).ExecuteReader();
+
+                while (response.Read())
+                {
+                    EnvironmentObjectsModel obj = new EnvironmentObjectsModel();
+                    obj.Name = response.GetString(0);
+                    obj.Hp = response.IsDBNull(1) ? 0 : response.GetInt64(1);
+                    obj.InternalId = response.GetString(2);
+                    obj.Id = response.GetInt64(3);
+                    obj.Type = response.GetString(4);
+                    obj.Category = response.GetString(5);
+                    listObj.Add(obj);
+                }
+                db.Close();
+                return listObj;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception();
+                throw new Exception(ex.Message);
             }
+            return null;
         }
     }
 }

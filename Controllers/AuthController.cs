@@ -14,11 +14,11 @@ public class AuthController : Controller
     [HttpPost]
     [Produces("application/json")]
     [AllowAnonymous]
-    public IActionResult Auth(UserModel? user)
+    public async Task<IActionResult> get(UserModel? user)
     {
         AuthService authService = new AuthService();
         user.AccessKey = HashService.Encode(user.AccessKey);
-        TokenModel token = authService.Auth(user);
+        TokenModel token = await authService.get(user);
             if (token == null)
         {
             Response.StatusCode = 401;
