@@ -8,13 +8,13 @@ namespace ReegornApi.Repositories
 {
     public class EnvironmentObjectsRepo
     {
-        public async Task<List<EnvironmentObjectsModel>> GetAll(OracleConnection db)
+        public async Task<List<EnvironmentObjectsModel>> GetById(long? idSession, OracleConnection db)
         {
             List<EnvironmentObjectsModel> listObj = new List<EnvironmentObjectsModel>();
             try
             {
                 db.Open();
-                var sql = $"SELECT DISPLAYNAME,HP,INTERNALID,ID,TYPE,CATEGORY FROM ENV_OBJS";
+                var sql = $"SELECT DISPLAYNAME,HP,INTERNALID,ID,TYPE,CATEGORY FROM ENV_OBJS WHERE ID = {idSession}";
 
                 OracleDataReader response = new OracleCommand(sql,db).ExecuteReader();
 

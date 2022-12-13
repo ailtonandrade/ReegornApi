@@ -4,16 +4,16 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace ReegornApi.Services
 {
-    public class EnvironmentObjectsService
+    public class BroadcastingSessionWorldService
     {
-        public async Task<List<EnvironmentObjectsModel>> GetAll()
+        public async Task<List<EnvironmentObjectsModel>> GetById(long? idSession)
         {
             EnvironmentObjectsRepo environmentObjectsRepo = new EnvironmentObjectsRepo();
             var db = Transactions.Create();
 
             try
             {
-                List<EnvironmentObjectsModel> model = await environmentObjectsRepo.GetAll(db);
+                List<EnvironmentObjectsModel> model = await environmentObjectsRepo.GetById(idSession, db);
                 return model;
             }
             catch

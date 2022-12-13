@@ -1,29 +1,27 @@
 ﻿using AuthApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ReegornApi.Services;
 
 namespace AuthApi.Controllers
 {
     [ApiController]
-    [Route("brdcst")]
-    public class BroadcastingController : Controller
+    [Route("broadcastingSessionWorld")]
+    public class BroadcastingSessionWorldController : Controller
     {
         [HttpPost]
         [Produces("application/json")]
-        [Route("brod-ch-lo")]
+        [Route("")]
         [AllowAnonymous]
-        public IActionResult MovChLo(BroadcastCharacterModel? obj)
+        public IActionResult BroadcastingSessionWorld(long? idSession)
         {
-            try
+            BroadcastingSessionWorldService service = new BroadcastingSessionWorldService();
+            var response = service.GetById(idSession);
+            if (response.IsCompletedSuccessfully)
             {
-
-                return Json(obj);
+                return Json(response.Result);
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return Json(ex.Message);
-            }
+            return Json(new { message = "Erro ao buscar objetos do ambiente" });
         }
     }
 }

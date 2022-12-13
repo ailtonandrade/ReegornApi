@@ -7,4 +7,5 @@ public class UserModel
     public string? Username { get; set; }
     public string? AccessKey { get; set; }
     public string? Type { get; set; }
+    public string? IdSession { get; set; }
 }
