@@ -1,4 +1,16 @@
-﻿senha DB ORACLE PC ? XE/Tomeisa1204
+﻿ROTEIRO ================================
+
+- FAZER ENDPOINT DE BROADCAST GETALL BY SCHENE
+- FAZER ENDPOINT DE POST DE CHARACER LOCAL
+    - DADOS DO JOGADOR, ROTAÇÃO, POSIÇÃO, ANIMATION ETC
+
+
+
+ROTEIRO ================================
+
+
+
+senha DB ORACLE PC ? XE/Tomeisa1204
 
 
 -- token jwt
