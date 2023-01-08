@@ -6,14 +6,14 @@ using ReegornApi.Services;
 namespace AuthApi.Controllers
 {
     [ApiController]
-    [Route("BroadcastingCharacterWorld")]
-    public class BroadcastingCharacterWorldController : Controller
+    [Route("PlayerLocalSync")]
+    public class PlayerLocalSyncController : Controller
     {
         [HttpPost]
         [Produces("application/json")]
-        [Route("update")]
+        [Route("getall")]
         [AllowAnonymous]
-        public async Task<IActionResult> BroadcastingCharacterWorldAsync(string? idSession)
+        public async Task<IActionResult> getAllSession(string? idSession)
         {
             BroadcastingCharacterWorldService service = new BroadcastingCharacterWorldService();
             try
