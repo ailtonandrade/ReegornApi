@@ -22,7 +22,7 @@ namespace ReegornApi.Services
                 throw new Exception();
             }
         }
-        public async void Create(BroadcastCharacterModel? character)
+        public async void Create(CharacterModel? character)
         {
             UserRepo repo = new UserRepo();
             var db = Transactions.Create();
@@ -36,7 +36,7 @@ namespace ReegornApi.Services
                 throw new Exception();
             }
         }
-        public async void Update(BroadcastCharacterModel? character)
+        public async void Update(CharacterModel? character)
         {
             UserRepo repo = new UserRepo();
             var db = Transactions.Create();

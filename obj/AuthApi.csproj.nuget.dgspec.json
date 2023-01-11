@@ -67,6 +67,10 @@
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.116, )"
+            },
+            "WebSocketSharp": {
+              "target": "Package",
+              "version": "[1.0.3-rc11, )"
             }
           },
           "imports": [

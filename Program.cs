@@ -4,7 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using static ReegornApi.Services.Transactions;
-
+using WebSocketSharp.Server;
+using AuthApi.Services;
+using WebSocketSharp;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,18 +73,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+// Server
 
+var wssv = new WebSocketServer(1236);
+wssv.AddWebSocketService<SocketSessionService>("/syncsession");
+wssv.AddWebSocketService<SocketPlayerService>("/syncplayer");
+wssv.Start();
 
-//Gera tabelas
-//bool isTables = true;
-//gera valores iniciais
-//bool isNewDataValues = true;
+Console.WriteLine("Server is setup.");
 
-//if (isTables) 
-//    InitData();
-
-//if (isNewDataValues)
-//    InitDataValues();
 
 app.UseHttpsRedirection();
 

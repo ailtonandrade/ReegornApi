@@ -16,6 +16,8 @@ public class AuthController : Controller
     [AllowAnonymous]
     public async Task<IActionResult> get(UserModel? user)
     {
+        user.Username = "andrade01";
+        user.AccessKey = "123456";
         AuthService authService = new AuthService();
         user.AccessKey = HashService.Encode(user.AccessKey);
         TokenModel token = await authService.get(user);

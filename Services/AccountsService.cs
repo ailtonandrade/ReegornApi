@@ -7,6 +7,20 @@ namespace ReegornApi.Services
 {
     public class AccountsService
     {
+        public async Task<List<CharacterModel>> GetCharacterList(ObjectDataModel obj)
+        {
+            AccountsRepo repo = new AccountsRepo();
+            var db = Transactions.Create();
+
+            try
+            {
+                return await repo.GetCharacterList(obj, db);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
         public async void Create(AccountsModel? acc)
         {
             AccountsRepo repo = new AccountsRepo();
@@ -21,7 +35,7 @@ namespace ReegornApi.Services
                 throw new Exception();
             }
         }
-        public async void UpdateCharacterLocal(BroadcastCharacterModel? character)
+        public async void UpdateCharacterLocal(CharacterModel? character)
         {
             UserRepo repo = new UserRepo();
             var db = Transactions.Create();

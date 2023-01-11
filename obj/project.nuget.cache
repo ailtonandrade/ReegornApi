@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "d1iEfC4cD3aeDZko91wxk9VIboTnFzhaZu3s8O0taed/wYsxa8FC9KJpsk+wQUz8J8K9G+HyvIxa9sFJqhXGvw==",
+  "dgSpecHash": "OKtbO7+kqlH+YJ6aDm6PGUTzUwCKKhwJdLO3IowGM1xJJ71tgc9FCnmhELD+EK9+2Kh/HRCidCklWOSu6vzX8w==",
   "success": true,
   "projectFilePath": "C:\\Users\\TOM\\source\\repos\\AuthApi\\AuthApi.csproj",
   "expectedPackageFiles": [
@@ -75,7 +75,19 @@
     "C:\\Users\\TOM\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
     "C:\\Users\\TOM\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\TOM\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
-    "C:\\Users\\TOM\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\TOM\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\TOM\\.nuget\\packages\\websocketsharp\\1.0.3-rc11\\websocketsharp.1.0.3-rc11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'WebSocketSharp 1.0.3-rc11' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net6.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "WebSocketSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -35,7 +35,7 @@ namespace AuthApi.Controllers
         [Produces("application/json")]
         [Route("update")]
         [AllowAnonymous]
-        public void Update(BroadcastCharacterModel? obj)
+        public void Update(CharacterModel? obj)
         {
             UserService service = new UserService();
             try
@@ -53,7 +53,7 @@ namespace AuthApi.Controllers
         [Produces("application/json")]
         [Route("create")]
         [AllowAnonymous]
-        public void Create(BroadcastCharacterModel? obj)
+        public void Create(CharacterModel? obj)
         {
             UserService service = new UserService();
             try

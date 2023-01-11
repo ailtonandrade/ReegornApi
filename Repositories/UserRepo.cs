@@ -12,7 +12,6 @@ namespace ReegornApi.Repositories
         public async Task<List<UserModel>> GetByAccount(string acc, OracleConnection db)
         {
             List<UserModel> listUser = new List<UserModel>();
-            UserModel user = new UserModel();
 
             try
             {
@@ -22,6 +21,7 @@ namespace ReegornApi.Repositories
                 var response = new OracleCommand(sql, db).ExecuteReader();
                 while (response.Read())
                 {
+                    UserModel user = new UserModel();
                     user.Name = response.GetString(0);
                     user.IdSession = response.GetString(1);
                     listUser.Add(user);
@@ -34,7 +34,7 @@ namespace ReegornApi.Repositories
                 throw new Exception(ex.Message);
             }
         }
-        public async void Create(BroadcastCharacterModel character, OracleConnection db)
+        public async void Create(CharacterModel character, OracleConnection db)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace ReegornApi.Repositories
                 throw new Exception(ex.Message);
             }
         }
-        public async void  Update(BroadcastCharacterModel character, OracleConnection db)
+        public async void  Update(CharacterModel character, OracleConnection db)
         {
             try
             {

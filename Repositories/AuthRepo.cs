@@ -17,16 +17,15 @@ namespace ReegornApi.Repositories
                 db.Open();
                 OracleDataReader response = new OracleCommand(sql, db).ExecuteReader();
 
-                while (response.Read())
-                        {
-                            user.Id = response.GetInt32(0);
-                            user.Name = response.GetString(1);
-                            user.Username = response.GetString(2);
-                            user.AccessKey = response.GetString(3);
-                            user.Type = response.GetString(4);
+                while (response.Read()){
+                            user.Name = response.GetString(0);
+                            user.Username = response.GetString(1);
+                            user.AccessKey = response.GetString(2);
+                            user.Type = response.GetString(3);
+                            user.Id = response.GetInt32(4);
 
-                            Console.WriteLine($"Acesso concedido à {user.Username} - {DateTime.Now}");
-                        };
+                    Console.WriteLine($"Acesso concedido à {user.Username} - {DateTime.Now}");
+                 };
             }
             catch (Exception ex){
                 throw new Exception(ex.Message);
