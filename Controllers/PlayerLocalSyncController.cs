@@ -13,19 +13,19 @@ namespace AuthApi.Controllers
         [Produces("application/json")]
         [Route("getall")]
         [AllowAnonymous]
-        public async Task<IActionResult> getAllSession(string? idSession)
+        public void getAllPlayer(string? idSession)
         {
-            BroadcastingCharacterWorldService service = new BroadcastingCharacterWorldService();
+            AccountsService service = new AccountsService();
             try
             {
-                List<BroadcastCharacterModel> model = await service.SelectCharacterWorld(idSession);
-                return Json(model);        
-    }
-            catch(Exception ex)
+                //acc.accessKey = HashService.Encode(acc.accessKey);
+                //service.Create(acc);
+            }
+            catch (Exception ex)
             {
 
                 throw new Exception(ex.Message);
-                
+
             }
         }
     }
