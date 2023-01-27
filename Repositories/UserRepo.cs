@@ -40,25 +40,10 @@ namespace ReegornApi.Repositories
             {
                 db.Open();
                 var sql = $"INSERT INTO CHARACTERS (CH_NAME,CH_ACC,CH_POSX,CH_POSY,CH_POSZ,CH_ROT,CH_ID_SESSION) " +
-                          $"VALUES ({character.name},{character.acc},{character.posX},{character.posY},{character.posZ},{character.rot},'SANDBOX01')";
+                          $"VALUES ({character.name},{character.acc},{character.positionX},{character.positionY},{character.positionZ},{character.rotation},'SANDBOX01')";
 
                 new OracleCommand(sql, db).ExecuteNonQuery();
                 db.Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        public async void  Update(CharacterModel character, OracleConnection db)
-        {
-            try
-            {
-                db.Open();
-                var sql = $"UPDATE CHARACTERS SET CH_POSX = {character.posX}, CH_POSY = {character.posY}, CH_POSZ = {character.posZ}, CH_ROT = {character.rot},CH_ID_SESSION = {character.idSession}  WHERE CH_ID = {character.id},AND CH_NAME = {character.name}";
-
-                new OracleCommand(sql,db).ExecuteNonQuery();
-                db.Close(); 
             }
             catch (Exception ex)
             {

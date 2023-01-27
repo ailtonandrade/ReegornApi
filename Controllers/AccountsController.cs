@@ -1,6 +1,4 @@
-﻿using AuthApi.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ReegornApi;
 using ReegornApi.Services;
 
@@ -13,7 +11,7 @@ namespace AuthApi.Controllers
         [HttpPost]
         [Produces("application/json")]
         [Route("select-character")]
-        public async Task<IActionResult> GetCharacterList(ObjectDataModel? obj)
+        public async Task<IActionResult> GetCharacterList(UserModel? obj)
         {
             AccountsService service = new AccountsService();
             try
@@ -22,9 +20,7 @@ namespace AuthApi.Controllers
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
-
             }
         }
     }

@@ -77,7 +77,7 @@ if (app.Environment.IsDevelopment())
 
 var wssv = new WebSocketServer(1236);
 wssv.AddWebSocketService<SocketSessionService>("/syncsession");
-wssv.AddWebSocketService<SocketPlayerService>("/syncplayer");
+//wssv.AddWebSocketService<SocketPlayerService>("/syncplayer");
 wssv.Start();
 
 Console.WriteLine("Server is setup.");

@@ -10,12 +10,12 @@ namespace ReegornApi.Repositories
     public class AccountsRepo
     {
         
-        public async Task<List<CharacterModel>> GetCharacterList(ObjectDataModel obj, OracleConnection db)
+        public async Task<List<CharacterModel>> GetCharacterList(UserModel obj, OracleConnection db)
         {
             try
             {
 
-                var sql = $"SELECT CH_NAME,CH_POSX,CH_POSY,CH_POSZ,CH_ROT,CH_ID_SESSION,CH_ACC,CH_CLASS,CH_LEVEL,CH_GENDER FROM CHARACTERS WHERE CH_ACC = '{obj.Name}'";
+                var sql = $"SELECT CH_NAME name,CH_POSX positionX,CH_POSY positionY,CH_POSZ positionZ,CH_ROT rotation,CH_WORLD world,CH_LOCAL local,CH_ACC acc,CH_CLASS chClass,CH_LEVEL lvl,CH_GENDER gender ,CH_HP hp FROM CHARACTERS WHERE CH_ACC = '{obj.Username}'";
                 List<CharacterModel> listCharacter = new List<CharacterModel>();
 
                 try
@@ -27,15 +27,17 @@ namespace ReegornApi.Repositories
                     {
                         CharacterModel character = new CharacterModel();
                         character.name = response.GetString(0);
-                        character.posX = response.GetString(1);
-                        character.posY = response.GetString(2);
-                        character.posZ = response.GetString(3);
-                        character.rot = response.GetString(4);
-                        character.idSession = response.GetString(5);
-                        character.acc = response.GetString(6);
-                        character.chClass = response.GetString(7);
-                        character.level = response.GetInt64(8);
-                        character.gender = response.GetString(9);
+                        character.positionX = response.GetFloat(1);
+                        character.positionY = response.GetFloat(2);
+                        character.positionZ = response.GetFloat(3);
+                        character.rotation = response.GetFloat(4);
+                        character.world = response.GetString(5);
+                        character.local = response.GetString(6);
+                        character.acc = response.GetString(7);
+                        character.chClass = response.GetString(8);
+                        character.level = response.GetInt64(9);
+                        character.gender = response.GetString(10);
+                        character.hp = response.GetInt64(11);
                         listCharacter.Add(character);
                     }
                     db.Close();
@@ -61,21 +63,6 @@ namespace ReegornApi.Repositories
 
                 new OracleCommand(sql, db).ExecuteNonQuery();
                 db.Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        public async void  UpdateCharacterLocal(CharacterModel character, OracleConnection db)
-        {
-            try
-            {
-                db.Open();
-                var sql = $"UPDATE CHARACTERS SET CH_POSX = {character.posX}, CH_POSY = {character.posY}, CH_POSZ = {character.posZ}, CH_ROT = {character.rot},CH_ID_SESSION = {character.idSession}  WHERE CH_ID = {character.id},AND CH_NAME = {character.name}";
-
-                new OracleCommand(sql,db).ExecuteNonQuery();
-                db.Close(); 
             }
             catch (Exception ex)
             {

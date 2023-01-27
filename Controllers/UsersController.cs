@@ -40,7 +40,7 @@ namespace AuthApi.Controllers
             UserService service = new UserService();
             try
             {
-                service.Update(obj);
+                //service.Update(obj);
             }
             catch(Exception ex)
             {

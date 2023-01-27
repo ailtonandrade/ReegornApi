@@ -36,19 +36,6 @@ namespace ReegornApi.Services
                 throw new Exception();
             }
         }
-        public async void Update(CharacterModel? character)
-        {
-            UserRepo repo = new UserRepo();
-            var db = Transactions.Create();
 
-            try
-            {
-                repo.Update(character, db);
-            }
-            catch
-            {
-                throw new Exception();
-            }
-        }
     }
 }
