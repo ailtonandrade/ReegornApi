@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using ReegornApi.Models;
 using ReegornApi.Repositories;
+using System.Threading.Tasks;
 
 namespace ReegornApi.Services
 {

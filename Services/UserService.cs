@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 using AuthApi.Models;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
 
 namespace ReegornApi.Services
 {

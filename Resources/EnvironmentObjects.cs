@@ -1,5 +1,6 @@
 ﻿using AuthApi.Data;
 using ReegornApi;
+using System.Collections.Generic;
 
 namespace AuthApi.Resources
 {

@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using AuthApi.Models;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
 
 namespace ReegornApi.Repositories
 {

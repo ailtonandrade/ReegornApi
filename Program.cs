@@ -7,6 +7,7 @@ using static ReegornApi.Services.Transactions;
 using WebSocketSharp.Server;
 using AuthApi.Services;
 using WebSocketSharp;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 

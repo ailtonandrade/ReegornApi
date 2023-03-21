@@ -1,4 +1,7 @@
-﻿namespace ReegornApi.Data
+﻿using Microsoft.Extensions.Configuration;
+using System;
+
+namespace ReegornApi.Data
 {
     public class Global
     {

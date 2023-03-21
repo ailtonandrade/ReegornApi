@@ -6,8 +6,11 @@ using Oracle.ManagedDataAccess.Client;
 using ReegornApi;
 using ReegornApi.Repositories;
 using ReegornApi.Services;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using WebSocketSharp;
 using WebSocketSharp.Net;
 using WebSocketSharp.Server;
@@ -114,7 +117,7 @@ namespace AuthApi.Services
         }
         protected override void OnClose(CloseEventArgs e)
         {
-            Send("Openned Connection at " + DateTime.Now + "---" + e.ToString);
+            Send("Openned Connection at " + DateTime.Now + "---" + e.ToString());
         }
 
     }

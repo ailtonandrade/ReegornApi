@@ -4,6 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Collections.Generic;
+using System;
 
 namespace ReegornApi.Services
 {
@@ -22,7 +24,7 @@ namespace ReegornApi.Services
                     new Claim(ClaimTypes.Name, user.Username.ToString()),
 
                 }),
-                Expires = DateTime.UtcNow.AddSeconds(30),
+                Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             foreach (var r in roles)

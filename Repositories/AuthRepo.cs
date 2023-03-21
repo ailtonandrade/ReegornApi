@@ -1,6 +1,9 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using ReegornApi.Models;
 using ReegornApi.Services;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ReegornApi.Repositories
 {
@@ -9,7 +12,7 @@ namespace ReegornApi.Repositories
         public async Task<TokenModel> get(UserModel credentials, OracleConnection db)
         {
             
-            string sql = $"SELECT * FROM ACCOUNTS WHERE USER_NAME = '{credentials.Username}' AND ACCESS_KEY = '{credentials.AccessKey}'";
+            string sql = $"SELECT NAME, USER_NAME, ACCESS_KEY, TYPE, ID FROM ACCOUNTS WHERE USER_NAME = '{credentials.Username}' AND ACCESS_KEY = '{credentials.AccessKey}'";
             UserModel user = new UserModel();
 
             try
@@ -42,8 +45,8 @@ namespace ReegornApi.Repositories
                     while (responseRoles.Read())
                     {
                         role.Id = responseRoles.GetInt32(0);
-                        role.AccountId = responseRoles.GetInt32(1);
-                        role.Role = responseRoles.GetString(2);
+                        role.Role = responseRoles.GetString(1);
+                        role.AccountId = responseRoles.GetInt32(2);
                         roles.Add(role);
                     }
                     db.Close();

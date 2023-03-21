@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReegornApi;
 using ReegornApi.Services;
+using System;
+using System.Threading.Tasks;
 
 namespace AuthApi.Controllers
 {

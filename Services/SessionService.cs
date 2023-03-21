@@ -2,11 +2,14 @@
 using ReegornApi;
 using ReegornApi.Repositories;
 using ReegornApi.Services;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
+using System.Threading.Tasks;
 using WebSocketSharp;
 using WebSocketSharp.Net;
 using WebSocketSharp.Server;
+using System;
 
 namespace AuthApi.Services
 {

@@ -1,4 +1,6 @@
-﻿namespace ReegornApi.Models
+﻿using System;
+
+namespace ReegornApi.Models
 {
     public class TokenModel
     {
