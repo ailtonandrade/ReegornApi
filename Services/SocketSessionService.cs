@@ -92,7 +92,7 @@ namespace AuthApi.Services
         private List<ObjectDataModel> DataListEnvironments(CharacterModel data, OracleConnection db)
         {
 
-            return EnvironmentObjects.data;
+            return EnvironmentObjects.getAllEnvironmentObjects(data.local);
         }
         private List<InfoSessionModel> DataListInfos(CharacterModel data, OracleConnection db)
         {

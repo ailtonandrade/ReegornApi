@@ -17,7 +17,9 @@ namespace ReegornApi.Repositories
         {
             try
             {
-                db.Open();
+                if(db.State == ConnectionState.Closed)
+                    db.Open();
+
                 var sql = $"SELECT CH_NAME name,CH_POSX positionX,CH_POSY positionY,CH_POSZ positionZ,CH_ROT rotation,CH_ACC acc,CH_HP hp,CH_CLASS chClass,CH_LEVEL lvl,CH_GENDER gender, CH_IS_ONLINE isOnline FROM CHARACTERS WHERE CH_WORLD = '{characterModel.world}' AND CH_LOCAL = '{characterModel.local}' AND CH_IS_ONLINE = 1";
                 List<CharacterModel> listCharacter = new List<CharacterModel>();
 
@@ -41,7 +43,10 @@ namespace ReegornApi.Repositories
                         character.isOnline = response.GetInt32(10);
                         listCharacter.Add(character);
                     }
-                    db.Close();
+
+                    if(db.State == ConnectionState.Open)
+                        db.Close();
+
                     return listCharacter;
                 }
                 catch (Exception ex)
@@ -75,8 +80,9 @@ namespace ReegornApi.Repositories
             try
             {
                 var sql = $"UPDATE CHARACTERS SET CH_POSX = '{characterModel.positionX}', CH_POSY = '{characterModel.positionY}', CH_POSZ = '{characterModel.positionZ}', CH_ROT = '{characterModel.rotation}' ,CH_HP = '{characterModel.hp}',CH_LOCAL = '{characterModel.local}'  WHERE CH_ACC = '{characterModel.acc}' AND CH_NAME = '{characterModel.name}' AND CH_IS_ONLINE = 1";
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
 
-                db.Open();
                 OracleCommand command = new OracleCommand(sql, db);
                 OracleTransaction transaction = db.BeginTransaction();
                 command.Transaction = transaction;
@@ -86,7 +92,8 @@ namespace ReegornApi.Repositories
 
                 transaction.Commit();
 
-                db.Close();
+                if (db.State == ConnectionState.Open)
+                    db.Close();
             }
             catch (Exception ex)
             {
