@@ -11,7 +11,7 @@ namespace ReegornApi.Services
 {
     public class TokenService
     {
-        public static TokenModel GenerateToken(UserModel user,List<RolesModel> roles)
+        public static TokenModel GenerateToken(UserModel user,List<RolesModel> roles, string IpAddress)
         {
 
 
@@ -38,6 +38,8 @@ namespace ReegornApi.Services
             tokenModel.Token = tokenHandler.WriteToken(token);
             tokenModel.Expires = tokenDescriptor.Expires;
             tokenModel.TokenType = "Bearer";
+            tokenModel.IsNewIpAddress = user.IsNewIpAddress;
+            tokenModel.IpAddress = IpAddress;
             return tokenModel;
         }
     }

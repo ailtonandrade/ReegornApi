@@ -16,25 +16,13 @@ namespace ReegornApi.Controllers
         [HttpPost]
         [Produces("application/json")]
         [AllowAnonymous]
-        public async Task<IActionResult> login(UserModel user)
+        public async Task<IActionResult> login(HashModel hash)
         {
-            validateUser(user);
 
-            TokenModel token = await getToken(user);
+            TokenModel token = await getToken(hash);
             validateToken(token);
 
             return Json(token);
-        }
-        private void validateUser(UserModel user)
-        {
-            user.Username = "andrade01";
-            user.AccessKey = "123456";
-            if (user.Username == null || user.AccessKey == null)
-            {
-                Response.StatusCode = 401;
-                throw new Exception("Erro ao autenticar.");
-            }
-            user.AccessKey = HashService.Encode(user.AccessKey);
         }
         private void validateToken(TokenModel token)
         {
@@ -45,11 +33,11 @@ namespace ReegornApi.Controllers
 
             }
         }
-        private async Task<TokenModel> getToken(UserModel user)
+        private async Task<TokenModel> getToken(HashModel hash)
         {
             AuthService authService = new AuthService();
 
-            return await authService.get(user);
+            return await authService.get(hash);
         }
 
     }

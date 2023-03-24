@@ -3,17 +3,30 @@ using ReegornApi.Models;
 using ReegornApi.Services;
 using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace ReegornApi.Repositories
 {
     public class AuthRepo
     {
-        public async Task<TokenModel> get(UserModel credentials, OracleConnection db)
+        public async Task<TokenModel> get(HashModel hash, OracleConnection db)
         {
-            
-            string sql = $"SELECT NAME, USER_NAME, ACCESS_KEY, TYPE, ID FROM ACCOUNTS WHERE USER_NAME = '{credentials.Username}' AND ACCESS_KEY = '{credentials.AccessKey}'";
             UserModel user = new UserModel();
+
+            string sql = $@"SELECT 
+	                        a.NAME, 
+	                        a.USER_NAME, 
+	                        a.ACCESS_KEY, 
+	                        a.TYPE, 
+	                        a.ID,
+	                        ca.ADDRESS,
+	                        ca.HAS_CHARACTER_ONLINE 
+	                        FROM ACCOUNTS a
+	                        INNER JOIN CONTROL_ACCESS ca ON (a.ID = ca.ACCOUNT_ID)
+	                        WHERE ACCESS_KEY = '{hash.Hash}'
+                            AND IS_DENIED = 0
+                            AND ADDRESS = '{hash.IpAddress}'";
 
             try
             {
@@ -26,6 +39,8 @@ namespace ReegornApi.Repositories
                             user.AccessKey = response.GetString(2);
                             user.Type = response.GetString(3);
                             user.Id = response.GetInt32(4);
+                            user.IpAddress = response.GetString(5);
+                            user.HasCharactersOnline = response.GetInt32(6);
 
                     Console.WriteLine($"Acesso concedido à {user.Username} - {DateTime.Now}");
                  };
@@ -33,7 +48,10 @@ namespace ReegornApi.Repositories
             catch (Exception ex){
                 throw new Exception(ex.Message);
             }
-            if(user.Username != null && user.Id != null)
+            validateIpAddress(user,hash);
+
+
+            if (user.Username != null && user.Id != null)
             {
                 sql = $"SELECT * FROM ROLES WHERE ACCOUNT_ID = {user.Id}";
                 try
@@ -50,7 +68,8 @@ namespace ReegornApi.Repositories
                         roles.Add(role);
                     }
                     db.Close();
-                    return TokenService.GenerateToken(user, roles);
+
+                    return TokenService.GenerateToken(user, roles, hash.IpAddress);
                 }
                 catch (Exception ex)
                 {
@@ -59,6 +78,25 @@ namespace ReegornApi.Repositories
                 }
             }
             return null;
+        }
+        private void validateIpAddress(UserModel userStorage,HashModel hashData)
+        {
+            try
+            {
+                if(userStorage.IpAddress != hashData.IpAddress)
+                {
+                    userStorage.IsNewIpAddress = 1;
+                }
+                else
+                {
+                    userStorage.IsNewIpAddress = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Acesso negado para o usuário: {userStorage.Username} - {DateTime.Now}");
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

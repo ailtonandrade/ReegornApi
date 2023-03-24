@@ -7,15 +7,15 @@ namespace ReegornApi.Services
 {
     public class AuthService
     {
-        public async Task<TokenModel> get(UserModel user)
+        public async Task<TokenModel> get(HashModel hash)
         {
             AuthRepo authRepo = new AuthRepo();
             OracleConnection db =  Transactions.Create();
 
-            if (!string.IsNullOrEmpty(user.Username) && !string.IsNullOrEmpty(user.AccessKey))
+            if (hash != null)
             {
             
-                TokenModel response = await authRepo.get(user, db);
+                TokenModel response = await authRepo.get(hash, db);
                 if (response != null)
                 {
                     return response;

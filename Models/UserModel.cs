@@ -8,5 +8,8 @@ namespace ReegornApi
         public string AccessKey { get; set; }
         public string? Type { get; set; }
         public string? IdSession { get; set; }
+        public string? IpAddress { get; set; }
+        public int? HasCharactersOnline { get; set; }
+        public int IsNewIpAddress { get; set; }
     }
 }
